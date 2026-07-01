@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 public class Main {
 
-    public static void liptYear(int year) {
+    public static void leapYear (int year) {
         if (year < 1584) {
             System.out.println(year + " Год не являеться высокосным ");
         } else if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
@@ -12,8 +12,7 @@ public class Main {
         }
     }
 
-    public static void messageClient(int clientOc, int clientDeviceYear) {
-        int currentYear = LocalDate.now().getYear();
+    public static void DownloadApp(int clientOc, int clientDeviceYear) {
         if (clientOc <= 0 && clientDeviceYear <= 2015) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке ");
         } else if (clientOc > 0 && clientDeviceYear <= 2015) {
@@ -25,26 +24,30 @@ public class Main {
         }
     }
 
-    public static int cardDelivery(int deliveryDistance) {
-        int days = 1;
-        System.out.println(" Потребуеться " + days + " дней ");
-        if (deliveryDistance < 20) {
-            days = 1;
+    public static int calculationDeliveryDays(int deliveryDistance) {
+         int days =0;
+        if (deliveryDistance <= 20) {
+            days =1;
+            return 1;
         }
         if (deliveryDistance >= 20 && deliveryDistance <= 60) {
-            days += 1;
-            return days;
+            days +=2;
+            return 2;
         } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
-            days += 2;
-            return days;
+            days +=3;
+            System.out.println(" Потребуется дней" + days);
+            return 3;
         }
         if (deliveryDistance > 100) {
+            System.out.println(" Доставки нет");
             return -1;
-        }else {
+        } else {
             return 0;
+
 
         }
     }
+
 
 
 
@@ -52,11 +55,14 @@ public class Main {
 
 
         System.out.println("Task 1");
-        liptYear(2021);
+        leapYear(2021);
         System.out.println(" Task2 ");
-        messageClient(1, 2022);
+        DownloadApp(1, 2022);
         System.out.println("Task3");
-        cardDelivery(200);
+         int deliveryDistance = 95;
+         int days = calculationDeliveryDays(deliveryDistance);
+         System.out.println("Потребуется дней" + days);
+
 
     }
 }
