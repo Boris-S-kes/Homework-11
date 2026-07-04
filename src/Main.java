@@ -12,8 +12,8 @@ public class Main {
         }
     }
 
-    public static void DownloadApp(int clientOc, int clientDeviceYear) {
-        if (clientOc <= 0 && clientDeviceYear <= 2015) {
+    public static void downloadApp(int clientOc, int clientDeviceYear) {
+        if (clientOc <= 0 && clientDeviceYear <=2015) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке ");
         } else if (clientOc > 0 && clientDeviceYear <= 2015) {
             System.out.println(" Установите облегченную версию приложения для Android по ссылке ");
@@ -24,7 +24,7 @@ public class Main {
         }
     }
 
-    public static int calculationDeliveryDays(int deliveryDistance) {
+    public static int calculateDeliveryDays (int deliveryDistance) {
         if (deliveryDistance <= 20) {
             return 1;
         }
@@ -58,10 +58,11 @@ public class Main {
         System.out.println("Task 1");
         leapYear(2021);
         System.out.println(" Task2 ");
-        DownloadApp(1, 2022);
+        int currentYear = LocalDate.now().getYear();
+        downloadApp(1,currentYear);
         System.out.println("Task3");
          int deliveryDistance = 95;
-         int days = calculationDeliveryDays(deliveryDistance);
+         int days = calculateDeliveryDays(deliveryDistance);
          System.out.println("Потребуется дней" + days);
          int  intervalDostavki = 90;
 
