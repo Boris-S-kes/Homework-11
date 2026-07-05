@@ -58,8 +58,8 @@ public class Main {
         System.out.println("Task 1");
         leapYear(2021);
         System.out.println(" Task2 ");
-        int currentYear = LocalDate.now().getYear();
-        downloadApp(1,currentYear);
+        int clientDeviceYear = LocalDate.now().getYear();
+        downloadApp(1,clientDeviceYear);
         System.out.println("Task3");
          int deliveryDistance = 95;
          int days = calculateDeliveryDays(deliveryDistance);
