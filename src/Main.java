@@ -13,13 +13,14 @@ public class Main {
     }
 
     public static void downloadApp(int clientOc, int clientDeviceYear) {
-        if (clientOc <= 0 && clientDeviceYear <=2015) {
+        int currentYear = LocalDate.now().getYear();
+        if (clientOc <= 0 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке ");
-        } else if (clientOc > 0 && clientDeviceYear <= 2015) {
+        } else if (clientOc > 0 && clientDeviceYear < currentYear) {
             System.out.println(" Установите облегченную версию приложения для Android по ссылке ");
-        } else if (clientOc <= 0 && clientDeviceYear > 2015) {
+        } else if (clientOc <= 0 && clientDeviceYear >= currentYear) {
             System.out.println("Установите обычную версию приложения для iOS по ссылке ");
-        } else if (clientOc > 0 && clientDeviceYear > 2015) {
+        } else if (clientOc > 0 && clientDeviceYear >= currentYear) {
             System.out.println(" Установите обычную версию приложения для Android по ссылке ");
         }
     }
@@ -58,13 +59,11 @@ public class Main {
         System.out.println("Task 1");
         leapYear(2021);
         System.out.println(" Task2 ");
-        int clientDeviceYear = LocalDate.now().getYear();
-        downloadApp(1,clientDeviceYear);
+        downloadApp(1,2022);
         System.out.println("Task3");
          int deliveryDistance = 95;
          int days = calculateDeliveryDays(deliveryDistance);
          System.out.println("Потребуется дней" + days);
-         int  intervalDostavki = 90;
 
 
 
